@@ -9,13 +9,13 @@ import prisma from "@/data/db/prismadb";
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
-    // GithubProvider({
-    //   clientId: process.env.GITHUB_ID as string,
-    //   clientSecret: process.env.GITHUB_SECRET as string,
-    // }),
+    GithubProvider({
+      clientId: process.env.GITHUB_API_KEY as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
+    }),
     GoogleProvider({
-      clientId: process.env.cid as string,
-      clientSecret: process.env.csec as string,
+      clientId: process.env.GOOGLE_API_KEY as string,
+      clientSecret: process.env.GOOGLE_SECRETE as string,
     }),
     CredentialsProvider({
       name: "credentials",

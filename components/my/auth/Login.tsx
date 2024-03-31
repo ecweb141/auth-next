@@ -26,6 +26,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import SocialAuth from "./SocialAuth";
 
 const LoginForm = () => {
   const [confirmTerm, setConfirmTerm] = useState<boolean>(false);
@@ -104,22 +105,31 @@ const LoginForm = () => {
                 </FormItem>
               )}
             />
-            <Button
-              title="Login"
-              type="submit"
-              variant={"outline"}
-              className="bg-amber-300 rounded-md text-black outline-none border-none hover:bg-amber-500"
-            >
-              Login
-            </Button>
+            <div className=" bg-amber-300  w-full rounded-lg flex items-center justify-center">
+              <Button
+                title="Login"
+                type="submit"
+                variant={"outline"}
+                className=" text-black outline-none border-none hover:bg-amber-500"
+              >
+                Login
+              </Button>
+            </div>
           </form>
         </Form>
-        {showError && <div className="mt-4 text-red-500">{showError}</div>}
-        {showSuccess && (
-          <div className="mt-4 text-green-500">{showSuccess}</div>
+        {showError && (
+          <div className="mt-4 w-96 bg-red-100 p-2 text-red-500">
+            {showError}
+          </div>
         )}
+        {showSuccess && (
+          <div className="mt-4 w-96 p-2 bg-green-100 text-green-500">
+            {showSuccess}
+          </div>
+        )}
+
+        <SocialAuth />
       </CardData>
-      <div></div>
     </div>
   );
 };
